@@ -100,4 +100,17 @@ setTimeout(() => {
 }, 3000);
 console.log("End");
 
-//Microtasks and Macrotasks
+//Callback 
+console.log("Start");
+for(let i=0; i<100000000000; i++){}
+console.log("End");
+
+
+function greet(name,callback){
+    console.log(`Hello, ${name}`);
+    callback();
+}
+function finished(){
+    console.log("Finished greeting");
+}
+greet("Mani Krishna",finished);
