@@ -81,8 +81,9 @@ const person = {
     age: 25,
     city: "Bangalore"
 };
-const {age, nm, city} = person; //object destructuring
-console.log(nm);
+
+const {name, age, city} = person; //object destructuring
+console.log(name); // This will print "Shruthi"
 
 
 //spread operator
@@ -95,3 +96,12 @@ const obj1 = {a: 1, b: 2};
 const obj2 = {c: 3, d: 4};
 const combinedObj = {...obj1, ...obj2};
 console.log(combinedObj); // This will print {a: 1, b: 2, c: 3, d: 4}
+
+
+function add (...a){
+    return a.reduce((sm, x) => sm + x, 0);
+}
+let a1  = add(1,2);
+console.log(a1); // This will print 3
+let a2 = add(1,2,3,4,5);
+console.log(a2); // This will print 15
