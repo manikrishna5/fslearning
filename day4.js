@@ -51,4 +51,14 @@ counter();
 // return inner;
 // function execution has done
 
+//Hoisting is a JavaScript mechanism where variable and function declarations are moved to the top of their containing scope during the compilation phase. This means that you can use variables and functions before they are declared in the code. However, only the declarations are hoisted, not the initializations.
 
+function hoistingExample() {
+    console.log(hoistedVar);
+}
+hoistingExample(); // Output: undefined
+var hoistedVar = 10;
+hoistingExample();
+
+
+//var it is hoisting with undefined, let and const are not hoisted. They are in a "temporal dead zone" until they are declared, which means you cannot access them before their declaration without causing a ReferenceError.
