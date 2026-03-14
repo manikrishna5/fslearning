@@ -106,7 +106,7 @@ Converting to JSON
 Use Data */
 const title = document.getElementById("title");
 const changeTitleBtn = document.getElementById("ChangeT").addEventListener("click",()=>{
-    title.textContent = "Sathwik loves both Phani & Surya"
+    title.textContent = "Sathwik loves both"
 })
 
 //Event Bubbling & Capturing
@@ -179,5 +179,31 @@ getUser()
 .then(posts=>getComments(posts[0]))
 .then(comments=>console.log(comments))
 
+//HomeWork
 
+function checkProduct(callback){
+    setTimeout(()=>{
+        console.log("Checking product availability... ");
+        callback();
+    },2000);
+}
+function processPayment(callback){
+    setTimeout(()=>{
+        console.log("Payment Successful! ");
+        callback();
+    },2000);
+}
+function shipProduct(callback){
+    setTimeout(()=>{
+        console.log("Shipping Product!");
+        callback();
+    },2000);
+}
 
+checkProduct(()=>{
+    processPayment(()=>{
+        shipProduct(()=>{
+            console.log("Order Completed!");
+        });
+    });
+});     
