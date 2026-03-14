@@ -131,4 +131,53 @@ localStorage.removeItem("name");
 localStorage.clear();
 
 
+function getUser(callback){
+    return new Promise((resolve)=>{
+        setTimeout(()=>{
+        console.log("User data fetched");
+        resolve({id:1,name:"Sathwik"});
+    },1000);
+    })
+}
+function getPosts(userId, callback){
+    return new Promise((resolve)=>{
+        setTimeout(()=>{
+            console.log("Posts fetched");
+            resolve(["posts1","posts2"]);
+        },1000);
+    });
+}
+    
+function getComments(posts, callback){
+    return new Promise((resolve)=>{
+        setTimeout(()=>{
+            console.log("Comments Fetched");
+            resolve(["comments1","comments2"]);
+        },1000);
+    });
+}
+
+async function getData(){
+    const user = await getUser();
+    const posts = await getPosts(user.id);
+    const comments = await getComments(posts[0]);
+    console.log(comments);
+}
+getData();
+
+
+// getUser((user)=>{
+//     getPosts(user.id,(posts)=>{
+//         getComments(posts[0],(comments)=>{
+//             console.log(comments);
+//         })
+//     })
+// })
+
+getUser()
+.then(user=>getPosts(user.id))
+.then(posts=>getComments(posts[0]))
+.then(comments=>console.log(comments))
+
+
 
