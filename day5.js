@@ -122,3 +122,13 @@ document.getElementById("title").addEventListener("click",()=>{
 document.getElementById("title").addEventListener("click",()=>{
     console.log("Title clicked - Capturing");
 }, true);
+
+//Local Storage & Cookies
+localStorage.setItem("name", "Sathwik");
+const name = localStorage.getItem("name");
+console.log(name);
+localStorage.removeItem("name");
+localStorage.clear();
+
+
+
